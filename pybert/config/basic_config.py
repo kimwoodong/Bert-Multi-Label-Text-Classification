@@ -11,20 +11,20 @@ pytorch BERT 模型包含三个文件：模型、vocab.txt, bert_config.json, �
      第二，将vocab.txt和bert_config.json放入该目录下，并在配置文件中指定VOCAB_FILE路径。当然vocab.txt可以不和模型放在一起，
      但是bert_config.json文件必须和模型文件在一起。具体可见源代码file_utils
 """
-BASE_DIR = Path('pybert')
+BASE_DIR = Path('/Users/kim-woojeong/PycharmProjects/Bert-Multi-Label-Text-Classification/pybert')
 
 configs = {
 
     'task':'multi label',
     'data':{
-        'raw_data_path': BASE_DIR / 'dataset/raw/train.csv',  # 总的数据，一般是将train和test何在一起构建语料库
+        'raw_data_path': BASE_DIR / 'dataset/raw/train.csv',  # 총 데이터, 일반적으로 train과 test를 함께..
         'train_file_path': BASE_DIR / 'dataset/processed/train.tsv',
         'valid_file_path': BASE_DIR / 'dataset/processed/valid.tsv',
         'test_file_path': BASE_DIR / 'dataset/raw/test.csv'
     },
     'output':{
         'log_dir': BASE_DIR / 'output/log', # 模型运行日志
-        'writer_dir': BASE_DIR / "output/TSboard",# TSboard信息保存路径
+        'writer_dir': BASE_DIR / "output/TSboard",# TSboard 정보 저장 경로
         'figure_dir': BASE_DIR / "output/figure", # 图形保存路径
         'checkpoint_dir': BASE_DIR / "output/checkpoints",# 模型保存路径
         'cache_dir': BASE_DIR / 'model/',

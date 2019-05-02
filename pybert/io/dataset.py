@@ -8,22 +8,27 @@ from pytorch_pretrained_bert.tokenization import BertTokenizer
 
 class InputExample(object):
     def __init__(self, guid, text_a, text_b=None, label=None):
-        """创建一个输入实例
-        Args:
-            guid: 每个example拥有唯一的id
-            text_a: 第一个句子的原始文本，一般对于文本分类来说，只需要text_a
-            text_b: 第二个句子的原始文本，在句子对的任务中才有，分类问题中为None
-            label: example对应的标签，对于训练集和验证集应非None，测试集为None
         """
-        self.guid   = guid  # 该样本的唯一ID
+        Args:
+            guid: Unique id for the example.
+
+            text_a: string. The untokenized text of the first sequence. For single
+            sequence tasks, only this sequence must be specified.
+
+            text_b: (Optional) string. The untokenized text of the second sequence.
+            Only must be specified for sequence pair tasks.
+
+            labels: (Optional) [string]. The label of the example. This should be
+            specified for train and dev examples, but not for test examples.
+        """
+        self.guid = guid
         self.text_a = text_a
         self.text_b = text_b
-        self.label  = label
+        self.label = label
 
 class InputFeature(object):
-    '''
-    数据的feature集合
-    '''
+    """A single set of features of data."""
+
     def __init__(self,input_ids,input_mask,segment_ids,label_id):
         self.input_ids   = input_ids   # tokens的索引
         self.input_mask  = input_mask
