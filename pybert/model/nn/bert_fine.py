@@ -1,8 +1,8 @@
 #encoding:utf-8
 import torch.nn as nn
-from pytorch_pretrained_bert.modeling import BertModel
+from pytorch_pretrained_bert.modeling import BertModel,BertPreTrainedModel
 
-class BertFine(BertModel):
+class BertFine(BertPreTrainedModel):
     def __init__(self,bertConfig,num_classes):
         super(BertFine ,self).__init__(bertConfig)
         self.bert = BertModel(bertConfig) # bert模型
